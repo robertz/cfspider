@@ -6,7 +6,7 @@
 		FROM sitemap s
 		WHERE s.crawled = 0
 		ORDER BY s.id
-		LIMIT 25
+		LIMIT 60
 	", [], { datasource: 'ufapp' });
 	checklist.each((row) => {
 		cfhttp(url = row.url, resolveURL = true, redirect = false);
@@ -19,11 +19,10 @@
 		out = [];
 		els.each((item) => {
 			if(
-				item.attr( "abs:href" ).len() &&
-				item.attr( "abs:href" ).find( 'https://' & row.domain ) == 1 &&
-				!item.attr( "abs:href" ).contains( "langCode" )
+				item.attr( "href" ).len() &&
+				item.attr( "href" ).findNoCase( 'https://' & row.domain ) == 1
 			){
-				out.append( item.attr( "abs:href" ) );
+				out.append( item.attr( "href" ) );
 			}
 		});
 		for(var o in out){

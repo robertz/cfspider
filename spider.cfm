@@ -11,11 +11,10 @@
 		out = [];
 		els.each((item) => {
 			if(
-				item.attr( "abs:href" ).len() &&
-				item.attr( "abs:href" ).find( 'https://' & domain ) == 1 &&
-				!item.attr ("abs:href" ).contains( "langCode" )
+				item.attr( "href" ).len() &&
+				item.attr( "href" ).findNoCase( 'https://' & domain ) == 1
 			){
-				out.append(item.attr("abs:href"));
+				out.append(item.attr("href"));
 			}
 		});
 		return out;
