@@ -4,7 +4,7 @@ Getting it running:
 * `box server start`
 * Add ufapp datasource to CF administrator
 * Create the table using the table DDL
-* Call `prime.cfm?domain=www.motivescosmetics.com` to start the spider process.
+* Call `spider.cfm?domain=kisdigital.com` to start the spider process.
 * Add scheduled task to call task.cfm every 60 seconds (or whatever interval you prefer). This will grab the next 25 URLs to be spidered.
 
 ### DDL
@@ -24,6 +24,6 @@ Example query to pull data by domain
 ``` sql
 SELECT  id, url, verified, (SELECT SUBSTRING_INDEX(REPLACE(REPLACE(url, "http://", ""), "https://", ""), '/', 1)) AS domain
 FROM sitemap s 
-WHERE url LIKE '%www.tlsslim.com/%'
+WHERE url LIKE '%kisdigital.com/%'
 ORDER BY s.id
 ```
