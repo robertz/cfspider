@@ -7,7 +7,7 @@
 	allLinks = [];
 
 	function getLinks(requiree string page){
-		cfhttp(url = page, resolveURL = true);
+		cfhttp(url = page, resolveURL = true, redirect = false);
 		jsDoc = jsoup.parse(cfhttp.fileContent);
 		els = jsDoc.select("a[href]");
 		out = [];

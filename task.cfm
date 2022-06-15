@@ -20,8 +20,7 @@
 		els.each((item) => {
 			if(
 				item.attr( "abs:href" ).len() &&
-				item.attr( "abs:href" ).contains( row.domain ) &&
-				item.attr("abs:href").contains( "https://" ) &&
+				item.attr( "abs:href" ).find( 'https://' & row.domain ) == 1 &&
 				!item.attr( "abs:href" ).contains( "langCode" )
 			){
 				out.append( item.attr( "abs:href" ) );
