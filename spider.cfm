@@ -24,7 +24,7 @@
 		try{
 			queryExecute("INSERT INTO sitemap (url) VALUES (:link)", {
 				'link': { value: lnk, cfsqltype: "cf_sql_varchar" }
-			}, { datasource: "ufapp" });
+			});
 		}
 		catch(any e){} // insert failed (dupe)
 	})

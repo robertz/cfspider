@@ -13,7 +13,7 @@
 		queryExecute("UPDATE sitemap SET statuscode = :statuscode, crawled = 1 WHERE id = :id", {
 			'statuscode': { value: cfhttp.statuscode, cfsqltype: "cf_sql_varchar" },
 			'id': { value: row.id, cfsqltype: "cf_sql_numeric" }
-		}, { datasource: "ufapp" });
+		});
 		jsDoc = jsoup.parse(cfhttp.fileContent);
 		els = jsDoc.select("a[href]");
 		out = [];
@@ -29,7 +29,7 @@
 			try{
 				queryExecute("INSERT INTO sitemap (url) VALUES (:link)", {
 					'link': { value: o, cfsqltype: "cf_sql_varchar" }
-				}, { datasource: "ufapp" });
+				});
 			}
 			catch(any e){} // insert failed (duplicate)
 		}
