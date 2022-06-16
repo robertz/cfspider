@@ -4,7 +4,7 @@
 	// use the domain if it is passed in
 	domain = url.keyExists("domain") ? url.domain : "";
 	allLinks = [];
-	function getLinks(requiree string page){
+	function getLinks(required string page){
 		cfhttp(url = page, resolveURL = true, redirect = false);
 		jsDoc = jsoup.parse(cfhttp.fileContent);
 		els = jsDoc.select("a[href]");
